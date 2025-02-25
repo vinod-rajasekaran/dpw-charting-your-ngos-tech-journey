@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charting your NGO's Tech Journey: A Strategy Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+        .container {
+            margin-top: 40px;
+        }
+        .logo {
+            max-width: 300px;
+            margin: 20px;
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .challenge-card {
+            padding: 20px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+
+        .option {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .option:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 600px) {
+            .logo {
+                max-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="center-align logo-container">
+            <img src="DPW-Logo-2025.gif" alt="Dasra Philanthropy Week Logo" class="logo">
+            <img src="t4d.png" alt="Project Tech4Dev Logo" class="logo">
+        </div>
+        <h3>Charting your NGO's Tech Journey: A Strategy Game</h3>
+
+        <section id="challenge-1" class="challenge-card active">
+            <p><strong>Goodlearning foundation </strong>, 15cr+ org, runs residential direct implementation of their education program in 5 centres, for this an app called <strong>'residentlearning'</strong> tracks vocational education, health, parent engagement, amongst other things, is launched with the help of partner A. 3 years later, another app called <strong>'scaleprogram'</strong> was launched, which is used by govt schools in the state adopting the 'Goodlearning' vocational education curriculum; here education outcomes are tracked. This is launched and run by Partner B. For context, the organisation does not have technology capacity and has high reliance on partners and their technology decisions. ‘Residentlearning’ app took approximately 6 months by vendor A to develop and deployed over a year. Scaling deep model is done through the ‘resident learning program as an experimental testbed to prove evidence of impact while the ‘scaleprogram’ is a scale up program that involves govt and partners.
+            </p>
+            <h5>Challenge 1: Vendor Exit</h5>
+            <p>The following year Partner A shares that they will shut down their business in the next 6 months. You must decide how to continue running 'ResidentLearning' while managing scale needs.</p>  
+            <button class="option" data-next="challenge-2a">Migrate ‘residentlearning’ to partner B managing ‘scaleprogram’
+            </button>
+            <button class="option" data-next="challenge-2b">Evaluate and onboard a new partner for ‘resident learning’ as we have not been that happy with the partner managing ‘scaleprogram’
+            </button>
+            <button class="option" data-next="challenge-2c">Build internal tech to manage and maintain ‘residentlearning’ - Invest in hiring and upskilling internally</button>
+        </section>
+
+        <section id="challenge-2a" class="challenge-card">
+            <h5>Challenge 2A: Partner B Struggles</h5>
+            <p>Partner B struggles with their evolving needs, technology development across platforms, differentiated asks from the two teams on areas such as building apps for dashboards to visualize insights, adding forms for new initiatives etc; Partner B proposes to increase costs to make ends meet.</p>
+            <button class="option" data-next="challenge-3">Seek additional funding to support partner B’s growing costs and scale needs.</button>
+            <button class="option" data-next="challenge-3">Reduce feature set of ‘residentlearning’ to ensure sustainability. Keep the difficulty of technology development/maintenance to a minimum to only the most used feature/usecases and allocating more resources towards the ‘scale’ app.
+            </button>
+            <button class="option" data-next="challenge-3">Start transitioning to an internal tech team to reduce reliance on partner B over time.</button>
+
+        </section>
+
+        <section id="challenge-2b" class="challenge-card">
+            <h5>Challenge 2B: New Partner Issues</h5>
+            <p>The new partner is struggling with integration and compliance issues.</p>
+            <button class="option" data-next="challenge-3">Phase the implementation and or reduce to most commonly used features/use case needs to allow smoother transition, gauge vendor skillset and minimize risks.</button>
+            <button class="option" data-next="challenge-3">Reduce reliance on partner B; adapt existing tools to bridge gaps between platforms. For example, integrate existing dashboarding tools instead of re-developing from scratch on the platforms.</button>
+            <button class="option" data-next="challenge-3">Recognize long-term partner risks and begin parallel investment in internal tech capacity.
+            </button>
+        </section>
+
+        <section id="challenge-2c" class="challenge-card">
+            <h5>Challenge 2C: Internal Team Struggles</h5>
+            <p>The internal team faces skill gaps and resource constraints.</p>
+            <p>Discussion Areas: Risks/Pros and Cons
+                Funding and lower cost tech designs
+                Prioritization of upskilling of internal staff but capacity constraints
+                Use case driven design to reduce feature set needs and simplify tech design
+                Platforms vs custom tech design
+            </p>
+            <button class="option" data-next="challenge-3">Reduce hiring and adopt a platform and build on top of it.
+                Consider adopting existing platforms that provide 80% of the functionality and build tools around it to support. </button>
+            <button class="option" data-next="challenge-3">Hire external consultants/trainers to upskill the team while maintaining control.
+            </button>
+        </section>
+
+        <section id="challenge-3" class="challenge-card">
+            <h5>Challenge 3: Funding Cuts</h5>
+            <p>FCRA funds are reduced by 50%. Your team must rethink the tech strategy for sustainability.</p>
+            <p><i>This is an open discussion. Name assumptions, identify risks, propose strategic adjustments, and prepare discussion notes.</i></p>
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('.option').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.challenge-card').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(this.getAttribute('data-next')).classList.add('active');
+            });
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
